@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background: #0b1f33;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .admin-card {
+            background: #13293d;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        h2, h3 {
+            color: #d4af37;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 1px solid #d4af37;
+        }
+
+        .txn-pending {
+            background-color: #f2c94c;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .txn-approved {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .txn-rejected {
+            background-color: #eb5757;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-gold {
+            background-color: #d4af37;
+            color: #000;
+            font-weight: 600;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .btn-gold:hover {
+            background-color: #bfa233;
+        }
+
+        .balance-form input {
+            padding: 6px;
+            margin-right: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="admin-card">
+    <h2>Admin Dashboard</h2>
+
+    <!-- LIVE BALANCE UPDATE -->
+    <h3>Update User Balance</h3>
+    <form class="balance-form" method="POST" action="{{ url_for('main.admin_update_balance') }}">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="number" step="0.01" name="balance" placeholder="New Balance" required>
+        <button class="btn-gold" type="submit">Update Balance</button>
+    </form>
+
+    <hr style="margin:20px 0; border-color:#d4af37;">
+
+    <!-- USER ACCOUNTS & TRANSACTIONS -->
+    <h3>User Transactions</h3>
+
+    {% for username, user in users.items() %}
+        <h4 style="margin-top:25px; color:#fff;">
+            {{ user.name }} ({{ username }}) — Balance: ${{ "{:,.2f}".format(user.balance) }}
+        </h4>
+
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            {% for txn in user.transactions %}
+            <tr>
+                <td>{{ txn.description }}</td>
+                <td>
+                    {% if txn.amount >= 0 %}
+                        +${{ "{:,.2f}".format(txn.amount) }}
+                    {% else %}
+                        -${{ "{:,.2f}".format(-txn.amount) }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if txn.status == "PENDING" %}
+                        <span class="txn-pending">PENDING</span>
+                    {% elif txn.status == "APPROVED" %}
+                        <span class="txn-approved">APPROVED</span>
+                    {% elif txn.status == "REJECTED" %}
+                        <span class="txn-rejected">REJECTED</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if txn.status == "PENDING" %}
+                        <form method="POST" action="{{ url_for('main.admin_approve_txn') }}" style="display:inline;">
+                            <input type="hidden" name="username" value="{{ username }}">
+                            <input type="hidden" name="txn_index" value="{{ loop.index0 }}">
+                            <button class="btn-gold">Approve</button>
+                        </form>
+
+                        <form method="POST" action="{{ url_for('main.admin_reject_txn') }}" style="display:inline;">
+                            <input type="hidden" name="username" value="{{ username }}">
+                            <input type="hidden" name="txn_index" value="{{ loop.index0 }}">
+                            <button class="btn-gold">Reject</button>
+                        </form>
+                    {% else %}
+                        —
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+</div>
+
+</body>
+</html>

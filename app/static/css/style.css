@@ -1,0 +1,101 @@
+/* Global body styling */
+body {
+    background-color: #0b1c2d;
+    color: #ffffff;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Login / Auth pages */
+.auth-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(circle, #13293d, #06121f);
+}
+
+.auth-card {
+    background: #13293d;
+    padding: 40px;
+    width: 360px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.brand {
+    color: #d4af37;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+.admin-link {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+/* Banking cards */
+.banking-card {
+    background: #13293d;
+    padding: 25px;
+    border-radius: 12px;
+    border: none;
+    color: #ffffff; /* ensure all text inside cards is white */
+}
+
+/* Gold accent for cards */
+.gold-border {
+    border-left: 5px solid #d4af37;
+}
+
+/* Buttons */
+.btn-gold {
+    background-color: #d4af37;
+    color: #000;
+    font-weight: 600;
+}
+
+.btn-gold:hover {
+    background-color: #bfa233;
+    color: #000;
+}
+
+/* Table text clarity */
+.table-dark th,
+.table-dark td {
+    color: #ffffff;
+}
+
+/* Badges for transaction status */
+.badge {
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.badge.bg-warning.text-dark {
+    background-color: #f0ad4e !important;
+    color: #000 !important;
+}
+
+.badge.bg-success {
+    background-color: #28a745 !important;
+}
+
+/* Slightly transparent text for secondary info */
+.banking-card p {
+    opacity: 0.9;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .auth-card, .banking-card {
+        width: 90%;
+        padding: 20px;
+    }
+}

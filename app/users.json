@@ -1,0 +1,127 @@
+{
+    "john": {
+        "username": "john",
+        "password": "1234",
+        "name": "John Doe",
+        "balance": 898950.0,
+        "transactions": [
+            {
+                "description": "Deposit",
+                "amount": 70000.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Withdraw",
+                "amount": -54870.0,
+                "status": "REJECTED"
+            },
+            {
+                "description": "Deposit",
+                "amount": 78950.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Withdraw",
+                "amount": -8300.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Withdraw",
+                "amount": -5000.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Deposit",
+                "amount": 6500.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Admin Balance Adjustment",
+                "amount": 156800.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Admin Balance Adjustment",
+                "amount": 30600.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Deposit",
+                "amount": 7500.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Deposit",
+                "amount": 350.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Deposit",
+                "amount": 560000.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Deposit Request",
+                "amount": 550.0,
+                "status": "PENDING"
+            },
+            {
+                "description": "Admin Rejection",
+                "amount": 550.0,
+                "status": "REJECTED"
+            },
+            {
+                "description": "Deposit Request",
+                "amount": 550.0,
+                "status": "REJECTED"
+            },
+            {
+                "description": "Admin Approval",
+                "amount": 550.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Deposit Request",
+                "amount": 550.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Deposit Request",
+                "amount": 5000.0,
+                "status": "PENDING"
+            }
+        ],
+        "notifications": []
+    },
+    "Aaron1": {
+        "username": "Aaron1",
+        "password": "password123",
+        "name": "Aaron James Dacombe",
+        "balance": 250000.0,
+        "transactions": []
+    },
+    "Rbrown1": {
+        "username": "Rbrown1",
+        "password": "password123",
+        "name": "Robert Brown",
+        "balance": 60250.0,
+        "transactions": [
+            {
+                "description": "Withdraw",
+                "amount": -1000.0,
+                "status": "APPROVED"
+            },
+            {
+                "description": "Withdraw",
+                "amount": -61000.0,
+                "status": "REJECTED"
+            },
+            {
+                "description": "Deposit",
+                "amount": 60000.0,
+                "status": "APPROVED"
+            }
+        ],
+        "notifications": []
+    }
+}
