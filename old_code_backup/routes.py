@@ -60,6 +60,7 @@ def dashboard():
     notifications = user.get("notifications", []).copy()
     user["notifications"] = []
     save_users(users)
+
     return render_template("dashboard.html", user=user, notifications=notifications)
 
 

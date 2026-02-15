@@ -160,33 +160,5 @@
             }
         ],
         "notifications": []
-    },
-    "Boss": {
-        "username": "Boss",
-        "password": "boss",
-        "name": "Bossman",
-        "balance": 750000.0,
-        "transactions": [
-            {
-                "description": "New Deposit",
-                "amount": 750000.0,
-                "status": "APPROVED"
-            }
-        ],
-        "notifications": []
-    },
-    "riri": {
-        "username": "riri",
-        "password": "riri",
-        "name": "rhyta",
-        "balance": 6000.0,
-        "transactions": [
-            {
-                "description": "ko",
-                "amount": 6000.0,
-                "status": "APPROVED"
-            }
-        ],
-        "notifications": []
     }
 }
